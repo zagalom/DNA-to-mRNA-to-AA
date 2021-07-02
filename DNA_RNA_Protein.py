@@ -3,10 +3,10 @@
 print ('Are you using a DNA ou RNA string?')
 RNAS= 'RNA'
 Resp=input().upper()
-if "DNA" in Resp:
+if "DNA" in Resp: #convert DNA to RNA
     print('Is the strand sense or antisense? Meaning, from 5 to 3 or from 3 to 5?')
     Resp2= input().upper()
-    if "ANTISENSE" in Resp2:
+    if "ANTISENSE" in Resp2: #reverse
         print ('Please input the string')
         DNAs=input().upper()
         RNAs = DNAs.replace('A', 'u').replace('T', 'a').replace('C', 'g').replace('G', 'c').upper()[::-1]
@@ -22,7 +22,7 @@ if "RNA" in Resp:
     print ('Please input the string')
     RNAs=input().upper()
 
-#
+# search for readable regions
 def readable(seq, n):
     for i in range(0, len(seq), n):
         yield seq[i:i+n]
@@ -46,7 +46,7 @@ print (' ')
 print ('The readable part of the RNA is:')
 print(result)
 
-def translate(seq):
+def translate(seq): #translate the readable region
       
     table = {
         'AUA':'I', 'AUC':'I', 'AUU':'I', 'AUG':'M',
